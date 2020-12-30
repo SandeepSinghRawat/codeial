@@ -11,12 +11,20 @@ module.exports.home = function(req, res){
     //         posts: post 
     //     });
     // });
-        Post.find({}).populate('user').exec(function(err, post){
+        Post.find({})
+        .populate('user')
+        .populate({
+            path: 'comments',
+            populate: {
+                path: 'user'
+            }
+        })
+        .exec(function(err, post){
             if(err){console.log('error in finding the post', err);return;}
             return res.render('home', {
                 title: 'Codeial | Home',
                 posts: post
             });
         });
-    
+ 
 };
