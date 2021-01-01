@@ -1,6 +1,4 @@
 
-<h1>Home Page</h1>
-
 <section id="feed-posts">
     <h3>Posts</h3>
     <% if(locals.user){%>
@@ -22,7 +20,7 @@
                             </small>
                             
                         <%}%>
-                
+
                         <%= post.content %>
                         <br>
                         <small>
@@ -37,9 +35,9 @@
                                 <input type="hidden" name="post" value="<%= post._id%>">
                                 <input type="submit" value="add comment">
                             </form>
-                
+
                         <%}%>
-                
+
                         <div class="post-comments-list">
                             <ul id="post-comments-<%=post._id%>">
                                 <% for(let comment of post.comments){ %>
@@ -68,4 +66,12 @@
         </ul>
     </div>
 
+</section>
+<section id="user-friends">
+    <h3>Friends</h3>
+    <% for(u of all_users){ %>
+        <p>
+            <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+        </p>
+    <%}%>
 </section>
