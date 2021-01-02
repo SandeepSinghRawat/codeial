@@ -1,3 +1,4 @@
-body #layout-main {
-  height: 100%;
-  text-align: center; }
+body {
+  margin: 0px; }
+  body #layout-main {
+    height: 100%; }
