@@ -10,5 +10,7 @@ router.use('/posts', require('./posts'));
 
 router.use('/comments', passport.checkAuthentication, require('./comments'));
 
+router.use('/api', require('./api'));
+
 router.get('/', homeController.home);
 module.exports = router;
