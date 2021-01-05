@@ -16,6 +16,12 @@ const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMiddleware = require('./config/flash-middleware');
 
+const chatServer = require('http').createServer(app);
+const chatSocket = require('./config/chat_socket')(chatServer);
+
+chatServer.listen(5000);
+console.log('chat server is listening on server 5000');
+
 app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
