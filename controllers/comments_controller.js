@@ -24,7 +24,7 @@ module.exports.create = async function(req, res){
                     console.log('error in sending to the queue', err);
                     return;
                 }
-                console.log('job enqueued', job._id);
+                console.log('job enqueued', job.id);
             });
 
             req.flash('success', 'Comment Published !');
@@ -61,7 +61,5 @@ module.exports.destroy = async function(req, res){
     }catch(err){
         req.flash('error', err);
         return res.redirect('back');
-    }
-    
-    
+    }  
 };
