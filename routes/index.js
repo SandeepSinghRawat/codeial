@@ -13,4 +13,7 @@ router.use('/comments', passport.checkAuthentication, require('./comments'));
 router.use('/api', require('./api'));
 
 router.get('/', homeController.home);
+
+router.use('/likes', require('./like'));
+
 module.exports = router;
