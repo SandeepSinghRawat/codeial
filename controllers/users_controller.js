@@ -62,7 +62,7 @@ module.exports.signIn = function(req, res){
     if(req.isAuthenticated()){
         return res.redirect('/users/profile');
     }
-    res.render('user_sign_in', {
+    return res.render('user_sign_in', {
         title: 'Codeial | Sign-In'
     });
 };
@@ -85,6 +85,7 @@ module.exports.create = function(req, res){
             });
             
         }else{
+            req.flash('success', 'You have signed up, login to continue!')
             return res.redirect('back');
         } 
     });
