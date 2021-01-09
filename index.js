@@ -17,7 +17,7 @@ const flash = require('connect-flash');
 const customMiddleware = require('./config/flash-middleware');
 
 const chatServer = require('http').createServer(app);
-const chatSocket = require('./config/chat_socket')(chatServer);
+const chatSocket = require('./config/chat_socket').chatSockets(chatServer);
 
 chatServer.listen(5000);
 console.log('chat server is listening on server 5000');
