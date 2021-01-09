@@ -6,7 +6,7 @@ module.exports.chatSockets = function(socketServer, cors){
         console.log('new connection received', socket.id);
 
         socket.on('disconnect', function(){
-            console.log('socket disconnected');
+            console.log('socket disconnected!');
         });
 
         socket.on('join_room', function(data){
@@ -18,7 +18,7 @@ module.exports.chatSockets = function(socketServer, cors){
         });
   
         socket.on('send_message', function(data){
-            io.in(data.chatroom).emit('recieve_message', data);
+            io.in(data.chatroom).emit('receive_message',data)
         });
 
     });
