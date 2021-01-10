@@ -1,5 +1,6 @@
 const express = require('express');
 const env = require('./config/environment');
+const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
@@ -49,6 +50,8 @@ app.use(express.static(env.assets_path));
 app.use('/users', express.static(env.assets_path));
 app.use('/users/profile', express.static(env.assets_path));
 app.use('/uploads', express.static(__dirname + '/uploads'));
+
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 app.use(expressLayouts);
 

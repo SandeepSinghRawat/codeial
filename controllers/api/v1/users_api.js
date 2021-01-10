@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../../../models/user');
 const env = require('../../../config/environment');
 
+
 module.exports.createSession = async function(req, res){
     try{
         let user = await User.findOne({email: req.body.email});
